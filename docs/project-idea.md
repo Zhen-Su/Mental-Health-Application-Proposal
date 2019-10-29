@@ -3,26 +3,35 @@
 
 ## Student Organizer - App
 
-### Features:
+### Features
 
 - **ToDo List**
+   - Scheduling (automated?)
+   - Subcategorise
+   - Uni schedule <- _my.bham API_
+   - Canvas deadlines <- _Canvas API_
 - **integrated Wiki** for student life problems
-   - Living alone / freshly moved out
-   - Food / Cooking
-   - Social (issues)
-   - Sleep
-   - Health & Exercise
-   - Formalities (Banking, GP,...)
-- Uni schedule <- _my.bham API_
-- Canvas deadlines <- _Canvas API_
+  - Living alone / freshly moved out
+  - Food / Cooking
+  - Social (issues)
+  - Sleep
+  - Health & Exercise
+  - Formalities (Banking, GP,...)
 - **Mental Health Tracking**
-   - Sleep
-   - Anxiety
-   - ...
-   - Reference to existing Mental Health support
+  - Sleep (Reminders if not enough)
+  - Hours of work / Work balance (Reminders if too much/not enough work)
+  - Anxiety
+  - ...
+  - Reference to existing Mental Health support
+- Google Maps integration
 
-### Implementation:
+### Implementation
 
-- iOS
-- Android
-- Both?
+- iOS (difficult on non-macOS)
+- Android (easier as it can be developed both on Windows and Unix)
+- Both??? (ambitious)
+
+### Safety Requirements
+
+- Email and (strong) password
+- Encryption of sensitive data over hashing (SHA-1?)
