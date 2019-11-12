@@ -5,7 +5,7 @@
 
 ### Features
 
-- **ToDo List**
+- **ToDo List & Calendar**
    - Scheduling (automated?)
    - Subcategorise
    - Uni schedule <- _my.bham API_
@@ -27,9 +27,8 @@
 
 ### Implementation
 
-- iOS (difficult on non-macOS)
 - Android (easier as it can be developed both on Windows and Unix)
-- Both??? (ambitious)
+extendable: iOS (difficult on non-macOS)
 
 ### Safety Requirements
 
