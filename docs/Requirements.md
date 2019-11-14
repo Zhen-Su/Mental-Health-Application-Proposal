@@ -1,33 +1,25 @@
 # Requirements
 
-## Functional Requirements
-
-### Cloud-based
+## Cloud-based
 
 - Update server with local data from user to have information stored in cloud
-- Download from server to fetch current status of data in case of using different device
+- Data sync whenever local data is modified, if server unreachable: re-try syncing when connection restored
+- Fetch data from server in case of logging in from a new device
 
-Non-functional requirements:
-
-- Do so securely
+***Non-functional***
+- Save and retrieve data securely
 - Try to reduce downtime of server
-- data sync should not significantly impact system performance
-- data sync whenever local data is modified, if server unreachable: re-try syncing when connection restored
+- Data sync should not significantly impact system performance
 
+## Registration/Login
 
-### Registration/Login
-
-Be able to
 - Create an account
 - Login using credentials (email and password)
-- save login
+- Save login/Remember password
 - Logout
+- Store user data in cloud
 
-- First login with new device: Fetch data from server
-
-- Store user data
-
-Login process:
+Login process
 1. User interface for login (fields: email, password, save password; links: forgot password, register, login button)
 2. Main Page
 
@@ -42,15 +34,12 @@ Registration process:
 3. Questionnaire (to be defined), used to gather information on how systems will work/help user
 4. Main Page
 
-
-Non-functional requirements:
-
+***Non-functional***
 - Password verification
 - Email confirmation (and email verification)
 - Store user data securely
 
-
-### Calendar
+## Calendar
 
 User can
 - Add an event
@@ -59,44 +48,39 @@ User can
 System can
 - Fetch lecture dates from my.bham into grouping and events
 - Fetch deadlines from Canvas into grouping and events
-
 - Displays calendar in some format (to be determined)
 
-### ToDo
+## ToDo
 
-User can
-- add todo
+- The user can add todo
+- The system can extract Canvas events as todo deadlines
 
-System can
-- Extract Canvas events as todo deadlines
+## Wiki
 
-### Wiki
+- The wiki has pages containing useful information for the student's mental health
 
-Kinda obvious
+## Tracker
 
-### Tracker
-
-First time:
+First time
 - Request permissions of accessing existing tracked information on device (e.g. Health apps)
 
 System can
-- display progess
+- display progress
 - extract data automatically from existing trackers (optional)
 - perform tracking analysis (to recommend user options of improvement)
 - send reward notification when achieving goals (opt. add tokens)
 
 User can
-- add tracking information manually (e.g. [+] slept x hours)
+- Add tracking information manually (e.g. [+] slept x hours)
 
 Tracker process:
-1. create recommendations based on tracking AI Big data analysis
-2. send notification to user (e.g. slept sufficiently / caught up on sleep tonight)
+1. Create recommendations based on tracking AI Big data analysis
+2. Send notification to user (e.g. slept sufficiently / caught up on sleep tonight)
 
-Non-functional requirements:
-
-- perform tracking analysis every hour
+***Non-functional***
+- Perform tracking analysis every hour
 - Appealing interface for progress of tracking
 
-extendable: 
-- track from more apps
-- compare to friends?
+Extendable:
+- Track from more apps
+- Compare to friends?
