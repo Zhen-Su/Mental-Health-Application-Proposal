@@ -2,27 +2,35 @@
 
 ## Cloud-based
 
-- Update server with local data from user to have information stored in cloud
-- Data sync whenever local data is modified, if server unreachable: re-try syncing when connection restored
-- Fetch data from server in case of logging in from a new device
+The local system must be able to
+- Upload local user data to server to have information stored in cloud
+- Upload data to server whenever local data is modified, if server unreachable: re-attempt upload when connection restored
+- Fetch data from server in case of logging in
 
 ***Non-functional***
-- Save and retrieve data securely
-- Try to reduce downtime of server
+- Send and retrieve data securely
+- Try to reduce downtime of server (implement in a way that performance-heavy tasks are executed by local application if possible)
 - Data sync should not significantly impact system performance
 
 ## Registration/Login
 
+The user is able to
 - Create an account
 - Login using credentials (email and password)
+- Logout
 - Reset password
 - Save login/Remember password
-- Logout
-- Store user data in cloud
 
-Login process
-1. User interface for login (fields: email, password, save password; links: forgot password, register, login button)
-    - wrong password or email popup if information entered wrong
+The system can
+- Store user data locally (and upload to the cloud (see: Cloud-based))
+
+Login process:
+1. User interface for login
+    - fields: email, password
+    - box: save password
+    - links: forgot password, register
+    - login button
+    - wrong password or email popup if information entered is wrong
 2. If login from new device, send verification email/text.
 3. Main Page
 
@@ -37,12 +45,12 @@ Registration process:
 3. Link mobile phone to account (optional)
    - enter phone number and then enter code sent via text message
    - or skip
-4. Questionnaire (to be defined), used to gather information on how systems will work/help user
-5. Main Page
+4. Questionnaire (to be defined), used to gather information on how systems will work / be able to help user
+5. Main Page (to be defined which page is default page)
 
 ***Non-functional***
 - Password verification
-- use cookies/ ip to determine if login is from a new device.
+- use cookies / ip to determine if login is from a new device.
 - Email confirmation (and email verification)
 - Phone verification message should be sent in small time frame.
 - Store user data securely
@@ -67,7 +75,7 @@ User can
     - color code
     - add category
 - edit todo
- - edit categories above
+    - edit categories above
 - remove todo
 
 - The user can add todo
@@ -75,40 +83,43 @@ User can
 
 ## Wiki
 
-- The wiki has pages containing useful information for the student's mental health
+contains
+- useful information for the student's mental health (also links to existing services and assistance at uni)
+- useful information and tips on any tracking-related topics
 
 ## Tracker
 
 First time
-- Request permissions of accessing existing tracked information on device (e.g. Health apps)
+- Request permission to access existing tracked information on device (e.g. Health apps)
 
 System can
-- display progress
-- extract data automatically from existing trackers (optional)
-- perform tracking analysis (to recommend user options of improvement)
-- send reward notification when achieving goals (opt. add tokens)
+- import tracking data from all permitted tracking applications
+- display progress for different time intervals (day, week, month, year)
+- perform tracking analysis to recommend user options of improvement (see: Tracker process)
+- send reward notification when achieving goals
 
 User can
-- Add tracking information manually (e.g. [+] slept x hours)
+- Add tracking data manually (e.g. [+] slept x hours)
+- Remove manually entered tracking data
 
 Tracker process:
-1. Create recommendations based on tracking AI Big data analysis
+1. Create recommendation based on tracking AI (trained to recommend based on positive changes of the user?)
 2. Send notification to user (e.g. slept sufficiently / caught up on sleep tonight)
 
 ***Non-functional***
 - Perform tracking analysis every hour
-- Appealing interface for progress of tracking
+- Appealing interface for progress of tracking so user is more likely to add tracking information
 
 Extendable:
-- Track from more apps
-- Compare to friends?
+- Import data from more third party apps people might be already using
+- Compare to friends (if option is turned on) and add tokens (achievements)
 
 ## Account Management
 Change account login details (email/password)
 1. Enter current and new email/password.
-2. UI to change credidentials
-   - fields: old password, new password, retype new password
-   - confirm and cancle box
+2. UI to change credentials
+   - fields: old password, new password, confirm new password
+   - confirm and cancel box
 
 Add Phone
 1. Enter phone number
@@ -116,10 +127,12 @@ Add Phone
 3. Enter verification code.
 
 Show devices
-- Show the user all the devices there account is logged into
-- allow user to logout of any of the devices. requre verificaton upon loging back into that device.
+- Show the user all the devices that are logged into the account
+- allow user to log out any of these devices so these devices must re-enter login details and get kicked out of current session
 
 ***Non-functional***
-- check password is of a certain complexity
+- check if password is of a certain complexity
+  - \> 10 signs total, < ? signs total
+  - must contain at least one of each: LC letter, UC letter, symbol, digit
 - sending verification email/ messages should be done in small time frame
 - store all new user data securely
