@@ -15,13 +15,15 @@
 
 - Create an account
 - Login using credentials (email and password)
+- Reset password
 - Save login/Remember password
 - Logout
 - Store user data in cloud
 
 Login process
 1. User interface for login (fields: email, password, save password; links: forgot password, register, login button)
-2. Main Page
+2. If login from new device, send verification email/text.
+3. Main Page
 
 Registration process:
 1. User interface for registration
@@ -31,12 +33,17 @@ Registration process:
    - link: register
 2. User interface to confirm email
    - back button
-3. Questionnaire (to be defined), used to gather information on how systems will work/help user
-4. Main Page
+3. Link mobile phone to account (optional)
+   - enter phone number and then enter code sent via text message
+   - or skip
+4. Questionnaire (to be defined), used to gather information on how systems will work/help user
+5. Main Page
 
 ***Non-functional***
 - Password verification
+- use cookies/ ip to determine if login is from a new device.
 - Email confirmation (and email verification)
+- Phone verification message should be sent in small time frame.
 - Store user data securely
 
 ## Calendar
@@ -84,3 +91,24 @@ Tracker process:
 Extendable:
 - Track from more apps
 - Compare to friends?
+
+## Account Management
+Change account login details (email/password)
+1. Enter current and new email/password.
+2. UI to change credidentials
+- fields: old password, new password, retype new password
+- confirm and cancle box
+
+Add Phone
+1. Enter phone number
+2. Verification code sent via sms
+3. Enter verification code.
+
+Show devices
+- Show the user all the devices there account is logged into
+- allow user to logout of any of the devices. requre verificaton upon loging back into that device.
+
+***Non-functional***
+- check password is of a certain complexity
+- sending verification email/ messages should be done in small time frame
+- store all new user data securely
