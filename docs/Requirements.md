@@ -96,8 +96,8 @@ Extendable:
 Change account login details (email/password)
 1. Enter current and new email/password.
 2. UI to change credidentials
-- fields: old password, new password, retype new password
-- confirm and cancle box
+   - fields: old password, new password, retype new password
+   - confirm and cancle box
 
 Add Phone
 1. Enter phone number
