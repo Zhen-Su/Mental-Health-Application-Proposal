@@ -29,14 +29,15 @@ Be able to
 
 Login process:
 1. User interface for login (fields: email, password, save password; links: forgot password, register, login button)
+    - wrong password or email popup if information entered wrong
 2. Main Page
 
 Registration process:
 1. User interface for registration
    - fields: name, email, password, confirm password
-   - info: password requirements
-   - box tick: accept T&C and PP
-   - link: register
+   - info: password requirements, notice of clicking on Sign up button
+   - hyperlink: T&C and PP
+   - button: Sign up, Back button (to login page)
 2. User interface to confirm email
    - back button
 3. Questionnaire (to be defined), used to gather information on how systems will work/help user
@@ -66,6 +67,13 @@ System can
 
 User can
 - add todo
+    - name todo
+    - add notes
+    - color code
+    - add category
+- edit todo
+ - edit categories above
+- remove todo
 
 System can
 - Extract Canvas events as todo deadlines
