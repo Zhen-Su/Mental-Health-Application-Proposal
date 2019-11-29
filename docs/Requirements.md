@@ -7,7 +7,14 @@
 <!--The local system must be able to
 - Upload local user data to server to have information stored in cloud
 - Upload data to server whenever local data is modified, if server unreachable: re-attempt upload when connection restored
-- Fetch data from server in case of logging in -->
+- Fetch data from server in case of logging in 
+
+***Non-functional***
+- Send and retrieve data securely
+- Try to reduce downtime of server (implement in a way that performance-heavy tasks are executed by local application if possible)
+- Data sync should not significantly impact system performance
+
+-->
 
 - The local app will ensure the user will be able to retrieve their accounts and the contents from the cloud database onto a new device.
     - The app must upload user data to server to sync user account information accross the number of devices the user is using.
@@ -24,10 +31,7 @@
     - In case of unreachable to cloud server, will attempt upload once re-established connection.
     
 
-***Non-functional***
-- Send and retrieve data securely
-- Try to reduce downtime of server (implement in a way that performance-heavy tasks are executed by local application if possible)
-- Data sync should not significantly impact system performance
+
 
 #### 2. Registration and Login
 
@@ -47,6 +51,7 @@
         - The user can provide the app with their Canvas credentials,of which they will be asked to login to confirm credentials.
             - The app will extract information regarding deadlines and add to the calendar and todo(see: 3. Calendar, 4.Todo) 
         - The user can provide their personal information through the questionaire as part of the sign-up process. The user can choose to answer any number of the questions as to not turn the user away from the app through too much input given. 
+            - The questions given from the questionair is set up in the manner that will give the AI (see: 7.AI) only expected results, simplifying its behaviour in using user given personal information.
             - However, it is encouraged that the user provide the app which as much information as they are willing to. 
             - Because this allow the app to personallize the main components (see: 3. Calendar, 4. Todo) through its AI (see: 7. AI).
         - The user will be able to add or remove personal information in their account management after signup (see: 6. Account Management)  
@@ -86,7 +91,7 @@ Registration process:
    - enter phone number and then enter code sent via text message
    - or skip
 4. Questionnaire (to be defined), used to gather information on how systems will work / be able to help user
-5. Main Page (to be defined which page is default page) --->
+5. Main Page (to be defined which page is default page) 
 
 ***Non-functional***
 - Password verification
@@ -94,7 +99,7 @@ Registration process:
 - Email confirmation (and email verification)
 - Phone verification message should be sent in small time frame.
 - Store user data securely
-
+--->
 #### 3. Calendar
 
 - The user will be able to modify the calendar upon signing into their account.
@@ -148,7 +153,17 @@ User can
 
 #### 5. Tracker
 
+- The tracker will collect information from health trackers either built-in on device from aplications, or external fitness trackers, and user input within the app if given.
+    - The app will request permission to access existing tracked information on device and extract health information.
+    - The app will display process for different time intervals about user health. 
+    - The user can give access to the app their fitness tracker devices of whih the app will extract information from.
+    - The user can input tracking data themselves to the app.
+    - The app will ask the user to give tracking data on their daily activites, such as sleep lengths.
+    - The user can choose to edit tracking data.
+    - The information collected through the tracker will be passed onto the AI (see: 7. AI) to create recommendations. 
+    - The tracker will send notifications to user about their health progress. 
 
+<!--
 First time
 - Request permission to access existing tracked information on device (e.g. Health apps)
 
@@ -169,12 +184,31 @@ Tracker process:
 ***Non-functional***
 - Perform tracking analysis every hour
 - Appealing interface for progress of tracking so user is more likely to add tracking information
-
 Extendable:
 - Import data from more third party apps people might be already using
 - Compare to friends (if option is turned on) and add tokens (achievements)
+-->
 
 #### 6. Account Management
+
+The user will be able to review their account information, to either add, edit, remove information. 
+    - The user can edit the questionnaire information that they provided when signing up.
+    - The user can edit their credentials, password and emails to change them.
+    - The user can see all the devices that are accessing the account.
+    - The user can log out of the app, which transfer to log-in screen.
+        - The user can log out of all devices.
+
+The user will be able to review and edit preferences regarding other functionalities of the app
+    - The user can choose to turn on or off the AI (see: 7.Behaviour Analysis AI)
+    - The user can choose to delete AI stored information about user.
+    - The user can choose to sync cloud data manually.
+    - The user can choose to set sync period, or disable sync. it'll be set to a default value otherwise.
+
+The app will be able to make use of the information given by the user. The user must be able to set how much information the app can use. 
+
+<!--
+
+
 Change account login details (email/password)
 1. Enter current and new email/password.
 2. UI to change credentials
@@ -197,15 +231,48 @@ Show devices
   - must contain at least one of each: LC letter, UC letter, symbol, digit
 - sending verification email/ messages should be done in small time frame
 - store all new user data securely
-
-
-#### 7. AI
+-->
+#### 7. Behaviour Analysis AI
 
 - The AI will create scheduling models based on collected information from other functionalities of the app that the user can access
     - The AI collects information based on changes from the Calendar (see: 3. Caldendar), User-given personal information (see: 6. Account Management), and from Tracker (see: 5. Tracker)
     - The AI will attempt to sort the information coming in to produce an optimized schedule for a period of 2 weeks.
-    - The AI will recommend modification to it own schedule model for the week based on actual user activity throughout the day.
+    - The AI will recommend modification to it own schedule model for the week based on actual user activity throughout the day collected from tracker (see: 5.Tracker).
         - i.e recommends more sleep hours next day if User report light sleep previous day.
     - The AI will change its recommendation models based on how much of the models it recommend the user is rejected or accepted to study user preferences.
 
 - The AI must be able to be switched on or off by user, as well as its saved profile on user preferences be deletable. 
+
+## Non Functional Requirements
+
+#### 1.Security
+- The app will implement hybrid cryptography for secure data transfer between cloud server and local app process used by user.
+    - The app must ensure data communications with external sources are either local or also secure. Unless nessesary, all communications are primarilly between local app and cloud server.
+        - Tracker applications and devices will be acessed without using any interaction between local app and cloud server.
+        - Tracker devices that rely on Bluetooth technology must also encrypt all transfer of communication between the device and the app. 
+        - Fetching caldendar/deadlines information from Bham API and Canvas API rely on the security of the systems respective security. 
+        - Credentials must be encrypted before transferring to API to void access-points into app or respective accounts of Bham and Canvas. 
+#### 2.Reliability
+- The app should be designed to account for possible errors and failures in the components and attempt to address it without hurting user experience or miniizing it.
+    - The AI should be designed and stress tested in mind to handle any and all changes in the app components.
+    - The app should be designed to sync information from cloud coming from older versions of the app and updating the local app accordingly. 
+    - Conversely, components within the local app must be designed so that, once newer versions of the app is introduced with changes to its component, it must be able to interpret information from older versions of app without error. The app will only modify information based on changes to component between versions. 
+- The cloud server should be designed with redundancy in mind, sycing with back-up server(s) after every set uploads from all users to account for possible failure from either servers. 
+
+#### 3.Scalability
+- The app should be constructed that an increase of users does not adversely affect the user experience of the individual user.
+    - Be designed that additional servers can be added or removed seamlessly and proportionally handle requests from users as user increases or decreases.
+    - Load balancers control server traffic to prevent server overload. Cloud server maintains control over sync request from local app, and can issue earlier sync requests to reduce expected spikes in data due to set upload time, or divert sync request to additional idential servers.
+
+#### 4.Process Efficiency
+- Actions the users may take must take a minimal amount of processing time within the app.
+    - Communications to external API i.e Canvas or Bham must not add on significant waiting time than based on the users internet connection speed.
+    - All background task should be done in the background and thus can take more time, but must finish as soon as possible
+        - Server syncs should compare information between local app and cloud server to upload the smallest possible data.
+        - Behavioural Analysis AI should minimize time complexity given increase in information coming in to efficently create recommendation models.
+            - The BAAI should compare current information that it is actively using with incoming information, and only pass new information to update recommendation models, rather than recreating them each time. 
+#### 5.Maintainability 
+- The app should be able to operate with minimal human oversight
+    - The BAAI should be able to run automonomously without direct user interaction and run effectively with any given amount of information collected.
+    - The cloud servers should be able to operate either indepently from other server in case of required server maintanence and updates.
+    - The cloud server should be set up to accept sync request from older versions of the app as it only hands incoming packages of user information.
