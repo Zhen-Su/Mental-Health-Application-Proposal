@@ -10,10 +10,10 @@ Submission Outline
 4. Document a non-trivial use case from 3. **[ALMOST DONE]**
 5. Activity diagram **[COMPLETED]**
 6. Class analysis
-  - noun-verb analysis
-  - responsibility-driven analysis
-  - first-cut class diagram
-  - class diagram
+  - noun-verb analysis **[DONE]**
+  - responsibility-driven analysis **[DONE]**
+  - first-cut class diagram **[DONE]**
+  - class diagram **[ALMOST DONE]**
 7. Object diagram
 8. Sequence diagram
 9. State diagram **[COMPLETED]**
