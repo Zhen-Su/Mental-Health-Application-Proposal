@@ -2,8 +2,8 @@ Submission Outline
 -------------------
 
 0. Come up with team & app name
-1. Introduction & Scope (<600 words)
-2. Requirements
+1. Introduction & Scope (<600 words) **[ALMOST DONE]**
+2. Requirements **[DONE]**
   - functional
   - non-functional
 3. Use Case diagram **[COMPLETED]**
@@ -20,4 +20,4 @@ Submission Outline
 10. Two Component diagrams
 11. Deployment diagram
 12. ATAM
-14. Sketch of the design
+14. Sketch of the design 
