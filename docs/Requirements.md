@@ -160,7 +160,7 @@ User can
     - The user can input tracking data themselves to the app.
     - The app will ask the user to give tracking data on their daily activites, such as sleep lengths.
     - The user can choose to edit tracking data.
-    - The information collected through the tracker will be passed onto the AI (see: 7. AI) to create recommendations. 
+    - The information collected through the tracker will be passed onto the AI (see: 7. AI) to create recommendations to improve the users health. 
     - The tracker will send notifications to user about their health progress. 
 
 <!--
@@ -264,7 +264,7 @@ Show devices
     - Be designed that additional servers can be added or removed seamlessly and proportionally handle requests from users as user increases or decreases.
     - Load balancers control server traffic to prevent server overload. Cloud server maintains control over sync request from local app, and can issue earlier sync requests to reduce expected spikes in data due to set upload time, or divert sync request to additional idential servers.
 
-#### 4.Process Efficiency
+#### 4.Efficiency
 - Actions the users may take must take a minimal amount of processing time within the app.
     - Communications to external API i.e Canvas or Bham must not add on significant waiting time than based on the users internet connection speed.
     - All background task should be done in the background and thus can take more time, but must finish as soon as possible
@@ -276,3 +276,10 @@ Show devices
     - The BAAI should be able to run automonomously without direct user interaction and run effectively with any given amount of information collected.
     - The cloud servers should be able to operate either indepently from other server in case of required server maintanence and updates.
     - The cloud server should be set up to accept sync request from older versions of the app as it only hands incoming packages of user information.
+
+#### 6.Accessibility and Usability
+- All of the app should be able to be used effectively with minimal instruction, and is intuitive to the user. The app should also be accessible by people with disabilities.
+    - The design of the UI must take into account of colour blindness so that people with them are not confused. 
+    - The questions asked by the questionaire should be short, understandable, concise.
+    - General word descriptors of the app functionalities shold be short, understandable, concise.
+    - Aim to display the app in mostly visuals instead of words.
