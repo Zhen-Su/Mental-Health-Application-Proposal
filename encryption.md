@@ -1,4 +1,4 @@
-# Important notes
+# Encryption
 
 These notes are a collection of considerations that need to be added to our documentations as they are crucial to our application.
 
