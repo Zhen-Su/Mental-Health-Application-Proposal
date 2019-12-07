@@ -14,8 +14,8 @@ Submission Outline
   - responsibility-driven analysis **[DONE]**
   - first-cut class diagram **[DONE]**
   - class diagram **[ALMOST DONE]**
-7. Object diagram
-8. Sequence diagram
+7. Object diagram **[COMPLETED]**
+8. Sequence diagram **[COMPLETED]**
 9. State diagram **[COMPLETED]**
 10. Two Component diagrams
 11. Deployment diagram
