@@ -18,14 +18,15 @@
 
 - The local app will ensure the user will be able to retrieve their accounts and the contents from the cloud database onto a new device.
     - The app must upload user data to server to sync user account information across the number of devices the user is using.
-    - The app will upload user data to server within set time period
-        - The app will upload new changes in the users **Bham** calendar if given account credentials. (see: 6. Account Management)
-        - The app will upload new changes in the users **Canvas** calendar if given account credentials. (see: 6. Account Management)
-        - The app will upload user-input personal information.
-        - the app will upload user-collected information.
-        - The app will upload up-to-date calendar configuration.
-    - The app will fetch user data from server within set time period
-    - The app will resolve changes between devices to prevent conflicts in information
+    - The app will upload all user data to server
+        - The app will upload questionnaire answers and preferences.
+        - The app will upload user-collected information.
+        - The app will upload API and login credential information.
+    - The app will fetch user data from server
+    - The app will fetch data from connected APIs
+        - The app will download new changes from the user's **Bham** calendar if given account credentials. (see: 6. Account Management)
+        - The app will download new changes from the user's **Canvas** account if given account credentials. (see: 6. Account Management)
+    - The app will resolve changes between devices to prevent conflicts with information
 
 
     - In case of unreachable to cloud server, will attempt upload once re-established connection.
@@ -38,22 +39,21 @@
 - The user will not be able to access the main functionalities of the app until they have either logged in or signed up for an account to log in.
     - The app will check if there is an account registered and log in, otherwise, the user will be directed to a log-in screen and has the option to create an account.
         - The user will log in with their credentials - email and password.
-        - Once logged in, the user can choose to save credentials for automatic login next time they start the app.
-        - For security reasons, user credentials are stored in the cloud (see: 1. Cloud-based) as well as locally.
-        - New password resets will be uploaded to the cloud, which is compared against locally saved password.
-        - Unchanged local password will fail once compared to new credentials recorded in cloud server.
+        - Upon loggin in, the user will choose to save credentials for automatic login next time they start the app.
+        - ??? For security reasons, user credentials are stored in the cloud (see: 1. Cloud-based) as well as locally.
+        - ??? New password resets will be uploaded to the cloud, which is compared against locally saved password.
+        - The unchanged local password will fail from now on when being compared to new credentials on the cloud server.
 
 
     - When signing up for an account, the app will direct them to a new screen.
-        - The user must provide the app with their credentials (email and password), and then a confirmation email will be sent to their email address in order to confirm the user.
+        - The user must provide the app with their credentials (email and password), and then a confirmation email will be sent to their email address in order to confirm the user-email.
+        - The user must confirm the email to verify registration.
         - The user can provide the app with their Bham credentials and if done so:
             - The app will extract the information regarding schedule from their Bham account, and insert it into the calendar (see: 3. Calendar)
         - The user can provide the app with their Canvas credentials and if done so:
             - The app will extract information regarding deadlines and will add it to the calendar and todos (see: 3. Calendar, 4.Todo)
-        - The user can provide their personal information through a questionnaire as a part of the sign-up process. The user can choose to answer any number of the questions:
-            - The questions from the questionnaire will give the AI (see: 7.AI) basic information about the user which is needed to setup its initial behaviour.
-            - However, it is encouraged that the user provide the app with as much information as they are willing to.
-            - The questionnaire allows the app to personalise the main components (see: 3. Calendar, 4. Todo) through its AI (see: 7. AI).
+        - The user can provide their personal information through a questionnaire as part of the sign-up process. The user can choose to skip any of the given questions.
+            - The questions from the questionnaire will be used to tailor the Behaviour Analysis AI output to the user needs. (see: 7. AI)
         - The user will be able to add or remove personal information in their account management after signup (see: 6. Account Management)  
 
     - If the user has an account but has forgotten the password, they can opt to reset password by receiving a change password hyperlink to the email they used to register their account with.
@@ -103,7 +103,7 @@ Registration process:
 #### 3. Calendar
 
 - The user will be able to modify the calendar upon signing into their account.
-    - The user can add an event given information on name, date and length, with length 0 being a deadline event.
+    - The user can add an event given all required information on name, date and length, with length 0 being a deadline event.
     - The user can provide additional information on the event
         - location of event
         - the pattern of the event of if it is a recurring event.
@@ -246,6 +246,10 @@ Show devices
 
 ## Non Functional Requirements
 
+#### To add:
+- The app will upload user data to the server within 3 seconds
+- The app will fetch user data from server within 3 seconds (based on >1MB/s download speed)
+
 #### 1.Security
 - The app will implement hybrid cryptography for secure data transfer between cloud server and local app process used by user.
     - The app must ensure data communications with external sources are either local or also secure. Unless necessary, all communications are primarily between local app and cloud server.
@@ -267,7 +271,7 @@ Show devices
     - Load balancers control server traffic to prevent server overload. Cloud server maintains control over sync request from local app, and can issue earlier sync requests to reduce expected spikes in data due to set upload time, or divert sync request to additional identical servers.
 
 #### 4.Efficiency
-- Actions the users may take must take a minimal amount of processing time within the app.
+- Actions the users may take must take a minimal amount of processing time of 1 second within the app.
     - Communications to external API i.e. Canvas or Bham must not add on significant waiting time than based on the users internet connection speed.
     - All background tasks should be done in the background and thus can take more time, but must finish as soon as possible
         - Server syncs should compare information between local app and cloud server to upload the smallest possible data.
