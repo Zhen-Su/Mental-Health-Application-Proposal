@@ -7,14 +7,14 @@ Submission Outline
   - functional
   - non-functional
 3. Use Case diagram **[COMPLETED]**
-4. Document a non-trivial use case from 3. **[NEEDS TO BE REVIEWED]**
+4. Document a non-trivial use case from 3. **[MAYBE DONE]**
 5. Activity diagram **[NEEDS TO BE REVIEWED]**
 6. Class analysis
   - noun-verb analysis **[NEEDS ADJUSTMENT]**
-  - responsibility-driven analysis **[NEEDS ADJUSTMENT]**
+  - responsibility-driven analysis **[DONE]**
   - first-cut class diagram **[DONE]** - based on new class diagram
   - class diagram **[IN PROGRESS]**
-7. Object diagram **[ADJUST USING CLASS DIAGRAM]**
+7. Object diagram **[DONE]**
 8. Sequence diagram **[ADJUST USING CLASS DIAGRAM]**
 9. State diagram **[NEEDS TO BE REVIEWED]**
 10. Two Component diagrams
