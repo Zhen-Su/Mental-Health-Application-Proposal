@@ -12,7 +12,7 @@ Submission Outline
 6. Class analysis
   - noun-verb analysis **[NEEDS ADJUSTMENT]**
   - responsibility-driven analysis **[NEEDS ADJUSTMENT]**
-  - first-cut class diagram **[NEEDS ADJUSTMENT]** - based on new class diagram
+  - first-cut class diagram **[DONE]** - based on new class diagram
   - class diagram **[IN PROGRESS]**
 7. Object diagram **[ADJUST USING CLASS DIAGRAM]**
 8. Sequence diagram **[ADJUST USING CLASS DIAGRAM]**
