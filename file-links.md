@@ -7,4 +7,6 @@ Having the online documents is easier to work with than  using the iterative pdf
 
 [Class diagrams](https://www.lucidchart.com/invitations/accept/2e21c0bf-27ef-4989-886e-e36a6ffeccfd)
 
+[State, object, sequence, activity diagram](https://www.lucidchart.com/invitations/accept/7caf7b64-9b87-4645-8cae-17b9e97f2911)
+
 [Component diagrams](https://www.lucidchart.com/invitations/accept/09655ddb-850d-488c-b86c-c498071292fe)
