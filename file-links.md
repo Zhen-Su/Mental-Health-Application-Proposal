@@ -15,5 +15,4 @@ Having the online documents is easier to work with than  using the iterative pdf
 
 [Component diagrams](https://www.lucidchart.com/invitations/accept/09655ddb-850d-488c-b86c-c498071292fe)
 
-
-
+[Deployment diagram](https://www.lucidchart.com/invitations/accept/6404a150-4e1e-4ce5-8964-499446b7bd79)
