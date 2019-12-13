@@ -8,6 +8,7 @@
 \usepackage{pdfpages} % Allows to import full pdf documents similar to graphics
 \usepackage{wrapfig} % Wrap text around figures more naturally
 \usepackage{lipsum} % Generates filler text
+\usepackage{soul} % Wrapping underline around linebreaks using \ul
 \hypersetup{
     colorlinks,
     linkcolor={black!80!black}, % change this color for links
@@ -48,7 +49,7 @@ or avoid procrastination. This imbalance is known to lead to mental health issue
 The Mental Health Tracking app tries to battle these issues, which, if not addressed properly early on, 
 can permanently damage individuals in their ability to live a healthy life and achieve future endeavours.\\
 
-Our app aims to allow University of Birmingham’s students to spend more time on the important tasks in 
+Our app aims to allow University of Birmingham’s students to spend more time on the important ToDO s in 
 their university life. It allows them to easily organise their day by automating a large part of their 
 schedule minimal user input.  
 Using tracked data of the user, the application additionally proposes assistance and advice if it 
@@ -78,7 +79,7 @@ the information below:
 The user can also choose to give their preferences based on their classes found in the calendar, 
 and the assignments found in canvas.
 For assignments with deadlines, the user can tell the system how long they think they will need 
-to complete this task.
+to complete this tasl.
 Otherwise the system will allow a set default value for time allocated each week to the task. 
 
 The user will be able to use the app without needing credentials for either of their university account 
@@ -484,11 +485,10 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \end{itemize}
 \newpage
 \hypertarget{non-functional-requirements}{%
-\subsection{Non Functional
-Requirements}\label{non-functional-requirements}}
+\subsection{Non Functional Requirements}\label{non-functional-requirements}}
 
 \hypertarget{sync-perf}{%
-\paragraph{1.Synchronisation performance:}\label{to-add}}
+\paragraph{1. Synchronisation performance:}\label{to-add}}
 
 \begin{itemize}
 \item
@@ -499,7 +499,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{security}{%
-\paragraph{2.Security}\label{security}}
+\paragraph{2. Security}\label{security}}
 
 \begin{itemize}
 \item
@@ -531,7 +531,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{reliability}{%
-\paragraph{3.Reliability}\label{reliability}}
+\paragraph{3. Reliability}\label{reliability}}
 
 \begin{itemize}
 \item
@@ -561,7 +561,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{scalability}{%
-\paragraph{4.Scalability}\label{scalability}}
+\paragraph{4. Scalability}\label{scalability}}
 
 \begin{itemize}
 \item
@@ -583,7 +583,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{efficiency}{%
-\paragraph{5.Efficiency}\label{efficiency}}
+\paragraph{5. Efficiency}\label{efficiency}}
 
 \begin{itemize}
 \item
@@ -620,7 +620,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{maintainability}{%
-\paragraph{6.Maintainability}\label{maintainability}}
+\paragraph{6. Maintainability}\label{maintainability}}
 
 \begin{itemize}
 \item
@@ -642,7 +642,7 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{accessibility-and-usability}{%
-\paragraph{7.Accessibility and
+\paragraph{7. Accessibility and
 Usability}\label{accessibility-and-usability}}
 
 \begin{itemize}
@@ -737,10 +737,181 @@ The user is the main actor in this use case as they will initiate the case by se
 \newpage
 
 \section{Class Analysis}
-\subsection{Noun-verb Analysis}
+\subsection{Verb-noun Analysis}
+\begin{description}
+  \item[\textbf{Text}:] noun
+  \item[\textbf{\underline{Text}}:] verb
+\end{description}
+
+
+\subsubsection*{1. Cloud-based}
+\begin{itemize}
+  \item The \textbf{local app} will ensure the \textbf{user} will be able to \textbf{\underline{retrieve their accounts}} and the contents from the \textbf{cloud database} onto a \textbf{new device}
+  \begin{itemize}
+    \item he app must \textbf{\underline{upload} user data} to server to \textbf{\underline{sync}} user account information across the number of devices the user is using
+    \item The app will \textbf{\underline{upload user data}} to server within set time period
+    \begin{itemize}
+      \item The app will \textbf{\underline{upload new changes in the user's Bham calendar}} if given 
+      \item The app will \textbf{\underline{upload new changes in the user's Canvas calendar}} if given 
+      \item The app will \textbf{\underline{upload user-input personal information}}
+      \item The app will \textbf{\underline{upload user-collected information}}
+      \item The app will \textbf{\underline{upload up-to-date calendar configuration}}
+    \end{itemize}
+    \item The app will \textbf{\underline{fetch user data}} from server within set time period
+    \item The app will \textbf{\underline{resolve changes}} between \textbf{devices} to \textbf{\underline{prevent conflicts}} \\\textbf{\underline{in information}}
+    \item In the case of "unreachable to \textbf{cloud server}", it will \textbf{\underline{attempt to upload once}} \textbf{\underline{re-established connection}}.
+  \end{itemize}
+\end{itemize}
+
+
+\subsubsection*{2. Registration and Login}
+\begin{itemize}
+  \item The user will not be able to \textbf{access} the main functionalities of the \textbf{app} until they have either logged in or signed up for an account to log in.
+  \begin{itemize}
+    \item The app will check if there is an account registered and log in, otherwise, the user will be directed to a \textbf{log-in screen} and has the option to \textbf{\underline{create an account}}.
+    \begin{itemize}
+      \item The \textbf{user} will log in with their \textbf{credentials}, email and password.
+      \item Once logged in, the user can choose to \textbf{\underline{save credentials for automatic login}} next time they start the app.
+      \item For security reasons, user credentials are \textbf{\underline{stored in the cloud}} as well as locally.
+      \item \textbf{New password resets} will be \textbf{\underline{uploaded to the cloud}}, which is\\ \textbf{\underline{compared against locally saved password}}.
+      \item Unchanged local password will fail once compared to new credentials recorded in cloud server.
+    \end{itemize}
+    \item When signing up for an account, the app will direct them to a new screen.
+    \begin{itemize}
+      \item The user must \textbf{\ul{provide the app with their credentials as email and password}}, of which a \textbf{confirmation email} will be sent to their account to affirm the existence of email account.
+      \item The user can \textbf{\ul{provide the app with their Bham credentials}}, of which they will be asked to login to \textbf{\underline{confirm credentials}}.
+      \begin{itemize}
+        \item The app will \textbf{\ul{extract the information regarding schedule}} from their Bham account, and \textbf{\underline{insert it into the calendar}}.
+      \end{itemize} 
+      \item The user can \textbf{\ul{provide the app with their Canvas credentials}}, of which they will be asked to login to \textbf{\underline{confirm credentials}}.
+      \begin{itemize}
+        \item The app will \textbf{\ul{extract information}} regarding deadlines and add to the \textbf{calendar} and \textbf{todo}
+      \end{itemize} 
+      \item The user can \textbf{\ul{provide their personal information}} through the \textbf{questionnaire} as part of the \textbf{sign-up process}. The user can choose to answer any number of questions as to not turn the user away from the app by requesting this data to function.
+      \begin{itemize}
+        \item However, it is encouraged that the user provide the app which as much information as they are willing to.
+        \item This allows the app to personalize the main component.
+      \end{itemize} 
+      \item The user will be able to \textbf{\ul{add or remove personal information}} in their \textbf{account management} after signup (see: 6. Account Management)    
+    \end{itemize}
+    \item If the user has an account but forgot the password, they can opt to \textbf{reset password} by sending it to the email they used to register their account with.
+  \end{itemize}
+\end{itemize}
+
+
+\subsubsection*{3. Calendar}
+\begin{itemize}
+  \item The user will be able to \textbf{\ul{modify the calendar}} upon signing into their account.
+  \begin{itemize}
+    \item The user can \textbf{\ul{add an event}} given information on \textbf{name, date and length}, with length 0 being a deadline event.
+    \item The user can provide additional information on the \textbf{event}
+    \begin{itemize}
+      \item \textbf{location of event}
+      \item the pattern of the event of if it is a \textbf{recurring event}.
+    \end{itemize}
+    \item The user can \textbf{\ul{delete an event}}, \textbf{\ul{duplicate the event}}, or \textbf{\ul{edit any sub-information belonging to the event}}.
+    \begin{itemize}
+      \item the user will be able to specify if they are modifying for all subsequent events of the same name, or just the instance of the choosen event.
+    \end{itemize}
+  \end{itemize}
+  \item The app will to \textbf{\ul{modify the calendar}} by \textbf{\ul{fetching calendar information from Bham}} and \textbf{Canvas calendar}, if given access by user.
+  \begin{itemize}
+    \item The app will have access to modification rights as if it was another user.
+    \item The app will not consult user on adding events taken from the external sources, but the user is able to treat them as an user-added event.
+  \end{itemize}
+  \item The app will attempt to \textbf{\ul{modify the calendar}} based on user-collected information from both the tracker and personal information given from questionnaire
+  \begin{itemize}
+    \item The calendar will \textbf{\ul{receive recommended output from AI}} based on given information to schedule the calendar with \textbf{daily tasks}.
+    \item The user can choose to accept none to all of the recommendation the AI makes, to commit to their weekly schedule.
+    \item The AI will manage 2 weeks worth of recommendation of daily task, to account for changes in actual schedule which leads to uncertainty.
+  \end{itemize}
+\end{itemize}
+
+
+\subsection*{4. ToDo}
+\begin{itemize}
+  \item The todo acts as a daily representation of the calendar, and thus \textbf{\ul{syncs information between itself and the Calendar}}.
+  \item It will display it in a phone-friendly format to allow user to better see \textbf{\ul{task requirements for the day}}, in a focused manner.
+  \begin{itemize}
+    \item It will add \textbf{User events, Calendar events}, and \textbf{AI events} and \textbf{\ul{display}} them for user based on current date.
+  \end{itemize}
+  \item The user can \textbf{\ul{create/edit/delete a todo}} in the same manner as they can an event in a calendar (see: 3.Calendar)
+  \begin{itemize}
+    \item The new todo changes will be synced to calendar as an event.
+  \end{itemize}
+\end{itemize}
+
+
+\subsubsection*{5. Tracker}
+
+\paragraph{First time:}
+\begin{itemize}
+  \item \textbf{\ul{Request permission to access existing tracked information}} on device (e.g. Health apps)
+\end{itemize} 
+
+\paragraph{System can:}
+\begin{itemize}
+  \item \textbf{\ul{import tracking data}} from all permitted tracking applications
+  \item \textbf{\ul{display progress}} for different time intervals (day, week, month, year)
+  \item \textbf{\ul{perform tracking analysis}} to recommend user options of improvement (see: Tracker process)
+  \item s\textbf{\ul{end reward notification}} when achieving goals
+\end{itemize}
+
+\paragraph{User can:}
+\begin{itemize}
+  \item \textbf{\ul{Add tracking data manually}} (e.g. [+] slept x hours)
+  \item \textbf{\ul{Remove manually entered tracking data}}
+\end{itemize}
+
+\paragraph{Tracker process:}
+\begin{itemize}
+  \item \textbf{\ul{Create recommendation based on tracking AI}} (trained to recommend based on positive changes of the user?)
+  \item \textbf{\ul{Send notification}} to user (e.g. slept sufficiently / caught up on sleep tonight)
+\end{itemize}
+
+
+\subsubsection*{6. Account Management}
+\begin{itemize}
+  \item \textbf{\ul{Change account login details}} (email/password)
+  \begin{enumerate}
+    \item \textbf{\ul{Enter current and new}} email/password.
+    \item UI to change credentials
+    \begin{itemize}
+      \item fields: old password, new password, confirm new password
+      \item confirm and cancel box
+    \end{itemize}
+  \end{enumerate}
+  \item \textbf{\ul{Add Phone}}
+  \begin{enumerate}
+    \item \textbf{\ul{Enter phone number}}
+    \item \textbf{\ul{Verification code sent via sms}}
+    \item \textbf{\ul{Enter verification code}}
+  \end{enumerate} 
+  \item \textbf{\ul{Show devices}}
+  \begin{itemize}
+    \item Show the user all the devices that are logged into the account
+    \item allow user to \textbf{\ul{log out}} any of these devices so these devices must re-enter login details and get kicked out of current session
+  \end{itemize} 
+\end{itemize}
+
+\subsubsection*{7. Intelligent Behaviour Analyser AI (IBA)}
+\begin{itemize}
+  \item IBA will \textbf{\ul{create scheduling models}} based on collected information from other functionalities of the app that the user can access
+  \begin{itemize}
+    \item \textbf{\ul{IBA collects information}} based on changes from the Calendar (see: 3. Caldendar), User-given personal information (see: 6. Account Management), and from Tracker (see: 5. Tracker)
+    \item IBA will attempt to \textbf{\ul{sort the information}} coming in to \textbf{\ul{produce an optimized schedule}} for a period of 2 weeks.
+    \item IBA will \textbf{\ul{recommend modification}} to it own schedule model for the week based on actual user activity throughout the day collected from tracker (see: 5.Tracker).
+    \begin{itemize}
+      \item i.e recommends more sleep hours next day if the user report short sleep the previous day.
+    \end{itemize} 
+    \item IBA will change its recommendation models based on how much of the models it recommend the user is rejected or accepted to study user preferences.
+  \end{itemize}
+  \item IBA must be able to be switched on or off by user, as well as its saved profile on user preferences be deletable.
+\end{itemize}
+
+\newpage
 \begin{center}
     \includegraphics[scale=0.9]{img/noun-verb/table1.png}
-    \newpage
     \includegraphics[scale=0.9]{img/noun-verb/table2.png}
     \includegraphics[scale=0.9]{img/noun-verb/table3.png}
     \includegraphics[scale=0.9]{img/noun-verb/table4.png}
