@@ -19,6 +19,57 @@
 
 \begin{document}
 
+\thispagestyle{empty}
+\begin{center}
+    \rule{\textwidth}{0.5mm}\vspace{7mm}
+    \Large{\sffamily{\bf{Intelligent Mobile Scheduling \& Tracking Application}}}\par
+    \vspace{5mm}
+    \rule{\textwidth}{0.5mm}\par
+    \vspace{13mm}
+
+    \large{\textbf{Software Engineering - Mental Health Application Proposal}}\par
+    \vspace{5mm}
+    \Large{Group 21}\\
+    \vspace{5mm}
+    \large
+    \underline{Authors}\\
+    \vspace{4mm}
+    \normalsize
+
+    \texttt{Harry Liddall} (1941067) - hxl868@student.bham.ac.uk\\
+    \texttt{Jonas Schäfer} (1944365) - jxs1270@student.bham.ac.uk\\
+    \texttt{Marina Tihova} (1942362) - mtt862@student.bham.ac.uk\\
+    \texttt{Phan Minh Cuong} (1943871) - cxp895@student.bham.ac.uk\\
+    \texttt{Jinming Zhang} (1942180) - jxz784@student.bham.ac.uk\\
+    \texttt{Zhen Su} (1940975) - zxs777@student.bham.ac.uk\\
+    \texttt{Kunyong Li} (1944206) - kxl706@student.bham.ac.uk\\
+    \vspace{10mm}
+
+    \large
+    Computer Science BSc \\
+    \vspace{1mm}
+    Year 2, Autumn Term \\
+    \vspace{5mm}
+    \Large{\underline{Lecturer}}\\
+    \vspace{2mm}
+    \large
+    \texttt{Prof. Rami Bahsoon}\\
+    \vspace{10mm}
+    College of Engineering \& Physical Sciences\par
+    \vspace{3mm}
+    School of Computer Science
+
+
+    \vspace{15mm}
+
+    \Large{\texttt{University of Birmingham}}\par
+    \ \\
+    \vspace{5mm}
+    \normalsize
+    Birmingham, \today\par
+\end{center}
+
+
 
 
 \newpage
@@ -27,15 +78,24 @@
 \newpage
 
 \section{Proposed System}
+
+\begin{wrapfigure}{R}{0.35\textwidth}
+  \centering
+  \includegraphics[width=0.3\textwidth]{img/mental-health.png}
+  \caption{\label{fig:frog1}\href{https://www.change.org/p/university-students-mental-health-days-for-college-students}{Mental Health (2011)}}
+\end{wrapfigure}
+
 \subsection{Introduction}
 The goal of this project is to design an \textbf{Android app} that reduces the stress an average university
- student experiences and assist them in managing their schedule. 
-As reported by a \href{https://www.theguardian.com/education/2019/may/31/why-are-students-at-university-so-stressed}{Uni Health study}, 80\% of students in higher 
-education report symptoms of stress or anxiety.
-According to an article by the guardian [cite the article], a large number of students 
-experience poor work-life balance, which is ``a huge contributing factor to mental health issues and stress''.
+student experiences and assist them in managing their schedule.\hfill
+As reported by a \href{https://www.thenationalstudent.com/Student/2017-08-31/82_of_students_suffer_from_stress_and_anxiety.html}{Uni Health study in the UK}, 82\% of students in higher 
+education report symptoms of stress or anxiety.\\
+According to an \href{https://www.theguardian.com/education/2019/may/31/why-are-students-at-university-so-stressed}{article by the guardian}, a large number of students 
+experience poor work-life balance, which is ``a huge contributing factor to mental health issues and stress''.\\
 This means that many students are unable to stay focused, be sufficiently productive 
-or avoid procrastination. This imbalance is known to lead to mental health issues such as:
+or avoid procrastination. \\
+\\
+This imbalance is known to lead to mental health issues such as:
 \begin{description}
     \item[Sleep Disorder:] As students either fail to work efficiently to complete coursework 
     in time, or are unable to find a healthy work-life balance due to social or professional 
@@ -49,7 +109,7 @@ or avoid procrastination. This imbalance is known to lead to mental health issue
 The Mental Health Tracking app tries to battle these issues, which, if not addressed properly early on, 
 can permanently damage individuals in their ability to live a healthy life and achieve future endeavours.\\
 
-Our app aims to allow University of Birmingham’s students to spend more time on the important ToDO s in 
+Our app aims to allow University of Birmingham’s students to spend more time on the important tasks in 
 their university life. It allows them to easily organise their day by automating a large part of their 
 schedule minimal user input.  
 Using tracked data of the user, the application additionally proposes assistance and advice if it 
@@ -58,7 +118,7 @@ detects potential for improvements to their lifestyle and rewards the user for r
 This gives valuable time back to the user and gives them a feeling of being in control. The scope 
 of this app is addressed below along with the assumption made about other APIs the app wishes 
 to interact with.
-
+\newpage
 \subsection{Scope}
 All functionalities of the mental health app are accessible when the user logs into the app after they 
 have created an account. As such, information about the user made available to the app includes:
@@ -68,7 +128,6 @@ have created an account. As such, information about the user made available to t
     \item Phone number
     \item Preferences (recorded by a questionnaire within the sign-up process)
 \end{itemize}
-\newpage
 If given access to the user's university or canvas account, it will be able to access, extract and use 
 the information below:
 \begin{itemize}
@@ -99,7 +158,7 @@ The app will collect extra information on the preferences of the user within the
 \end{itemize}
 
 The AI will take in all the above timing information and attempt to shuffle them within the calendar in an efficient manner, the result of which will be the base schedule every new user will be greeted with. As the user continues to interact with the app, they will be actively recommended modifications based on new inputs. The user can selectively choose which changes to include in their schedule.
-
+\newpage
 Every day when the user first logs in, the app will ask them simple questions, such as for how long have they slept. The AI will then recommend a longer sleep time if the user recorded low sleep the previous day. 
 
 
@@ -111,7 +170,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 
 \subsubsection*{Assumptions for the app}
 \begin{itemize}
-    \item he user of the app must create an account with a valid email to be able to receive periodic notification, and verify its account. 
+    \item The user of the app must create an account with a valid email to be able to receive periodic notification, and verify its account. 
     \item It is assumed that data transfer is scalable proportional to users once the system is set in place as new features may be introduced, increasing data transfer size. 
     \item It is assumed that the user will provide their own information, either manually setting their own calendar, or giving the app their preferences and letting the system set the calendar for them.
     \item It is assumed that IBA will always produce an efficient calendar catered to the user’s needs and preferences depending on the amount of information the user enters.
