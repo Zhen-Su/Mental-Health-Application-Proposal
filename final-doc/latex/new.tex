@@ -8,6 +8,8 @@
 \usepackage{pdfpages} % Allows to import full pdf documents similar to graphics
 \usepackage{wrapfig} % Wrap text around figures more naturally
 \usepackage{lipsum} % Generates filler text
+\usepackage{longtable} % For tables (pandoc)
+\usepackage{booktabs} % To thicken table lines (pandoc)
 \hypersetup{
     colorlinks,
     linkcolor={black!80!black}, % change this color for links
@@ -17,6 +19,8 @@
 \setlength{\parindent}{0cm} % Remove automatic indentation
 
 \begin{document}
+
+
 
 \newpage
 
@@ -485,15 +489,15 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \subsection{Non Functional
 Requirements}\label{non-functional-requirements}}
 
-\hypertarget{upload-performance}{%
-\paragraph{1.Upload performance:}\label{to-add}}
+\hypertarget{sync-perf}{%
+\paragraph{1.Synchronisation performance:}\label{to-add}}
 
 \begin{itemize}
 \item
-  The app will upload user data to the server within 3 seconds
+  The app shall upload user data to the server within 3 seconds
 \item
-  The app will fetch user data from server within 3 seconds (based on
-  \textgreater1MB/s download speed)
+  The app shall fetch user data from server within 3 seconds (based on
+  \textgreater1MB/s download speed of user)
 \end{itemize}
 
 \hypertarget{security}{%
@@ -732,9 +736,22 @@ The user is the main actor in this use case as they will initiate the case by se
 \begin{center}
 \includegraphics[width=\textwidth]{img/Activity_Diagram.pdf}
 \end{center}
+\newpage
 
 \section{Class Analysis}
 \subsection{Noun-verb Analysis}
+\vspace{1cm}
+\begin{center}
+    \includegraphics[scale=0.9]{img/noun-verb/page1.png}
+    \newpage
+    \includegraphics[scale=0.9]{img/noun-verb/page2.png}
+    \includegraphics[scale=0.9]{img/noun-verb/page3.png}
+    \includegraphics[scale=0.9]{img/noun-verb/page4.png}
+    \includegraphics[scale=0.9]{img/noun-verb/page5.png}
+\end{center}
+
+\subsubsection*{Responsibility Driven Analysis}
+
 \subsection{First-Cut Class Diagram}
 \begin{center}
 \includegraphics[angle=-90,width=0.8\textwidth]{img/Firstcut_Class_Diagram.pdf}
@@ -765,16 +782,39 @@ The user is the main actor in this use case as they will initiate the case by se
 \newpage
 
 \section{System Architecture}
-\subsection{Candidate Architectures}
+\subsection{Component Diagram}
 \subsubsection{3-Tier Architecture Component Diagram}
+\vspace{1cm}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{img/Component_Diagram_3tier.pdf}
+\end{center}
+\newpage
 \subsubsection{Client-Server Architecture Component Diagram}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{img/Component_Diagram_SC.pdf}
+\end{center}
+\ 
+\subsection{Deployment Diagram}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{img/Deployment_Diagram.pdf}
+\end{center}
 \newpage
 
-\subsection{Deployment Diagram}
 \subsection{Architecture Justification}
 \subsubsection{ATAM evaluation: Utility Tree}
+\begin{center}
+    \includegraphics[width=\textwidth]{img/Utility_Tree.pdf}
+\end{center}
 \newpage
-\newpage
-%\includepdf[angle=-90]{img/Object_Diagram.pdf}
-Test2
+\subsubsection{Justification}
+We will use the Two-tier Client-Server architecture. This is because our app is only using
+the server for the database synchronisation which means there is no need for the added complications
+and labor costs involved in implementing a Three tier architecture. While this can generalize and implement further
+features for the system, our software would not have significant benefit as the server is only used as a remote backup.
+\\
+The Client-Sercer Model allows 
+for faster communication to the Server because the app directly make requests to the server rather than having to go through an additional layer which
+add complexity to the software. This additional \emph{feature} would slow down development where the app should be focused on quick deployment in order
+to provide its service to the users in need.
+
 \end{document}
