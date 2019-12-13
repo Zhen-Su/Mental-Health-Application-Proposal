@@ -231,7 +231,7 @@ Show devices
 - sending verification email/ messages should be done in small time frame
 - store all new user data securely
 -->
-#### 7. Behaviour Analysis AI
+#### 7. Behaviour Analysis AI (BAI)
 
 - The AI will create scheduling models based on collected information from other functionalities of the app that the user can access
     - The AI collects information based on changes from the Calendar (see: 3. Calendar), User-given personal information (see: 6. Account Management), and from Tracker (see: 5. Tracker)
@@ -276,11 +276,11 @@ Show devices
     - All background tasks should be done in the background and thus can take more time, but must finish as soon as possible
         - Server syncs should compare information between local app and cloud server to upload the smallest possible data.
         - Behavioural Analysis AI should minimise time complexity given increase in information coming in to efficiently create recommendation models.
-            - The BAAI should compare incoming information with current one that it is actively using, and only pass new information to update recommendation models, rather than recreating them each time.
+            - The BAI should compare incoming information with current one that it is actively using, and only pass new information to update recommendation models, rather than recreating them each time.
 
 #### 5.Maintainability
 - The app should be able to operate with minimal human oversight
-    - The BAAI should be able to run autonomously without direct user interaction and run effectively with any given amount of information collected.
+    - The BAI should be able to run autonomously without direct user interaction and run effectively with any given amount of information collected.
     - The cloud servers should be able to operate either indecently from other servers in case of required server maintenance and updates.
     - The cloud server should be set up to accept sync requests from older versions of the app as it only handles incoming packages of user information.
 
