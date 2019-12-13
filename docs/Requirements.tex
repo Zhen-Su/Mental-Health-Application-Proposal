@@ -1,121 +1,3 @@
-\documentclass[a4paper,11pt]{article} % Default is not A4 but US letter size, 10pt default
-%\usepackage{extsizes} % Improves range from (pt) 10,11,12 to 8,9,10,11,12,14,17,20
-\usepackage{graphicx} % Used to import external graphics e.g. images
-\usepackage{amsmath, amssymb, amsfonts} % Extend alphabet of mathematical symbols and provide improved equation environment
-\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry} % Used to define page dimensions
-\usepackage{hyperref} % Enables hyperlinks (online links + referencing), use [hidelinks] optionally
-\usepackage{xcolor} % Sets colour for hyperlinks instead of ugly boxes
-\usepackage{pdfpages} % Allows to import full pdf documents similar to graphics
-\usepackage{wrapfig} % Wrap text around figures more naturally
-\usepackage{lipsum} % Generates filler text
-\hypersetup{
-    colorlinks,
-    linkcolor={black!80!black}, % change this color for links
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
-}
-\setlength{\parindent}{0cm} % Remove automatic indentation
-
-\begin{document}
-
-\newpage
-
-\tableofcontents
-\newpage
-
-\section{Proposed System}
-\subsection{Introduction}
-The goal of this project is to design an \textbf{Android app} that reduces the stress an average university
- student experiences and assist them in managing their schedule. 
-As reported by a \href{https://www.theguardian.com/education/2019/may/31/why-are-students-at-university-so-stressed}{Uni Health study}, 80\% of students in higher 
-education report symptoms of stress or anxiety.
-According to an article by the guardian [cite the article], a large number of students 
-experience poor work-life balance, which is ``a huge contributing factor to mental health issues and stress''.
-This means that many students are unable to stay focused, be sufficiently productive 
-or avoid procrastination. This imbalance is known to lead to mental health issues such as:
-\begin{description}
-    \item[Sleep Disorder:] As students either fail to work efficiently to complete coursework 
-    in time, or are unable to find a healthy work-life balance due to social or professional 
-    pressure, sleep is often neglected.
-    \item[Anxiety:] As students struggle to micro-manage the large number of tasks they are 
-    expected to handle on a daily basis, they lose their feeling of self-control. This can 
-    lead to a variety of mental health issues including anxiety but can lead as far 
-    as \textbf{panic attacks, depression} or \textbf{suicidal thoughts}.
-\end{description}
-\ \\
-The Mental Health Tracking app tries to battle these issues, which, if not addressed properly early on, 
-can permanently damage individuals in their ability to live a healthy life and achieve future endeavours.\\
-
-Our app aims to allow University of Birmingham’s students to spend more time on the important tasks in 
-their university life. It allows them to easily organise their day by automating a large part of their 
-schedule minimal user input.  
-Using tracked data of the user, the application additionally proposes assistance and advice if it 
-detects potential for improvements to their lifestyle and rewards the user for reaching their goals. 
-
-This gives valuable time back to the user and gives them a feeling of being in control. The scope 
-of this app is addressed below along with the assumption made about other APIs the app wishes 
-to interact with.
-
-\subsection{Scope}
-All functionalities of the mental health app are accessible when the user logs into the app after they 
-have created an account. As such, information about the user made available to the app includes:
-\begin{itemize}
-    \item Name
-    \item Email
-    \item Phone number
-    \item Preferences (recorded by a questionnaire within the sign-up process)
-\end{itemize}
-\newpage
-If given access to the user's university or canvas account, it will be able to access, extract and use 
-the information below:
-\begin{itemize}
-    \item University schedule (Tom Moses University Schedule API)
-    \item Assignment deadlines and related events (Canvas API)
-\end{itemize}
-
-The user can also choose to give their preferences based on their classes found in the calendar, 
-and the assignments found in canvas.
-For assignments with deadlines, the user can tell the system how long they think they will need 
-to complete this task.
-Otherwise the system will allow a set default value for time allocated each week to the task. 
-
-The user will be able to use the app without needing credentials for either of their university account 
-or their canvas account. However, doing so will limit the immediate functionality of the provided 
-Intelligent Behaviour Analysis AI (IBA) for scheduling.
-\\
-\\
-The app will collect extra information on the preferences of the user within the questionnaire. IBA will make recommendations based on these which the user can choose to edit and/or remove. The questionnaire will ask them about:
-\begin{itemize}
-    \item When and how long does the user want to sleep
-    \item Procrastination habits
-    \item Time spent on grocery shopping
-    \item Time spent on social activities
-    \item Time to get ready in the morning
-    \item Exercising goals
-    \item Specific routines
-\end{itemize}
-
-The AI will take in all the above timing information and attempt to shuffle them within the calendar in an efficient manner, the result of which will be the base schedule every new user will be greeted with. As the user continues to interact with the app, they will be actively recommended modifications based on new inputs. The user can selectively choose which changes to include in their schedule.
-
-Every day when the user first logs in, the app will ask them simple questions, such as for how long have they slept. The AI will then recommend a longer sleep time if the user recorded low sleep the previous day. 
-
-
-All collected inputs are stored locally and on the cloud servers to help sync across all user devices. As such, all transfer of information must be done securely and efficiently.
-The AI will plan for a month at a time. This accounts for uncertainty within students’ actual schedules during the weeks and to compress user info synced to the cloud servers. 
-
-As information is sent to a shared cloud with other accounts, potential issues to concurrency and scalability should be considered, as all users will upload their data to the servers. 
-Therefore, the servers will handle all accounts’ synchronisation requests in a reliable and efficient manner.
-
-\subsubsection*{Assumptions for the app}
-\begin{itemize}
-    \item he user of the app must create an account with a valid email to be able to receive periodic notification, and verify its account. 
-    \item It is assumed that data transfer is scalable proportional to users once the system is set in place as new features may be introduced, increasing data transfer size. 
-    \item It is assumed that the user will provide their own information, either manually setting their own calendar, or giving the app their preferences and letting the system set the calendar for them.
-    \item It is assumed that IBA will always produce an efficient calendar catered to the user’s needs and preferences depending on the amount of information the user enters.
-\end{itemize}
-
-\newpage
-
 \hypertarget{requirements-analysis}{%
 \section{Requirements Analysis}\label{requirements-analysis}}
 
@@ -126,7 +8,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{1. Cloud-based}\label{cloud-based}}
 
 \begin{itemize}
- 
+\tightlist
 \item
   The local app will ensure the user will be able to retrieve their
   accounts and the contents from the cloud database onto a new device.
@@ -139,7 +21,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     The app will upload all user data to server
 
     \begin{itemize}
-     
+    \tightlist
     \item
       The app will upload questionnaire answers and preferences.
     \item
@@ -153,7 +35,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     The app will fetch data from connected APIs
 
     \begin{itemize}
-     
+    \tightlist
     \item
       The app will download new changes from the user's \textbf{Bham}
       calendar if given account credentials. (see: 6. Account
@@ -175,21 +57,21 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{2. Registration and Login}\label{registration-and-login}}
 
 \begin{itemize}
- 
+\tightlist
 \item
   The user will not be able to access the main functionalities of the
   app until they have either logged in or signed up for an account to
   log in.
 
   \begin{itemize}
-   
+  \tightlist
   \item
     The app will check if there is an account registered and log in,
     otherwise, the user will be directed to a log-in screen and has the
     option to create an account.
 
     \begin{itemize}
-     
+    \tightlist
     \item
       The user will log in with their credentials - email and password.
     \item
@@ -210,7 +92,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     screen.
 
     \begin{itemize}
-     
+    \tightlist
     \item
       The user must provide the app with their credentials (email and
       password), and then a confirmation email will be sent to their
@@ -222,7 +104,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
       done so:
 
       \begin{itemize}
-       
+      \tightlist
       \item
         The app will extract the information regarding schedule from
         their Bham account, and insert it into the calendar (see: 3.
@@ -233,7 +115,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
       done so:
 
       \begin{itemize}
-       
+      \tightlist
       \item
         The app will extract information regarding deadlines and will
         add it to the calendar and todos (see: 3. Calendar, 4.Todo)
@@ -244,7 +126,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
       to skip any of the given questions.
 
       \begin{itemize}
-       
+      \tightlist
       \item
         The questions from the questionnaire will be used to tailor the
         Behaviour Analysis AI output to the user needs. (see: 7. AI)
@@ -264,13 +146,13 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{3. Calendar}\label{calendar}}
 
 \begin{itemize}
- 
+\tightlist
 \item
   The user will be able to modify the calendar upon signing into their
   account.
 
   \begin{itemize}
-   
+  \tightlist
   \item
     The user can add an event given all required information on name,
     date and length, with length 0 being a deadline event.
@@ -278,7 +160,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     The user can provide additional information on the event
 
     \begin{itemize}
-     
+    \tightlist
     \item
       location of event
     \item
@@ -289,7 +171,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     sub-information belonging to the event.
 
     \begin{itemize}
-     
+    \tightlist
     \item
       the user will be able to specify if they are modifying for all
       subsequent events of the same name, or just the instance of the
@@ -301,7 +183,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   Bham and Canvas if given access by user.
 
   \begin{itemize}
-   
+  \tightlist
   \item
     The app will have access to modification rights as if it was another
     user.
@@ -317,7 +199,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   (see: 6. Account Management) using the integrated AI (see: 7. AI).
 
   \begin{itemize}
-   
+  \tightlist
   \item
     The calendar will receive recommended output from AI based on given
     information to schedule the calendar with daily tasks (such as
@@ -336,7 +218,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{4. ToDo}\label{todo}}
 
 \begin{itemize}
- 
+\tightlist
 \item
   The todo acts as a daily representation of the calendar, and thus
   syncs information between itself and the Calendar.
@@ -345,7 +227,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   see task requirements for the day, in a focused manner.
 
   \begin{itemize}
-   
+  \tightlist
   \item
     It will add User events, Calendar events, and AI events and display
     them for the user based on current date.
@@ -355,7 +237,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   an event in a calendar (see: 3.Calendar)
 
   \begin{itemize}
-   
+  \tightlist
   \item
     The new todo changes will be synced to calendar as an event.
   \end{itemize}
@@ -365,13 +247,14 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{5. Tracker}\label{tracker}}
 
 \begin{itemize}
- 
+\tightlist
 \item
   The tracker will collect information from health trackers either
   built-in on device from applications, or external fitness trackers,
   and user input within the app if given.
 
   \begin{itemize}
+  \tightlist
   \item
     The app will request permission to access existing tracked
     information on device and extract health information.
@@ -399,11 +282,13 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \paragraph{6. Account Management}\label{account-management}}
 
 \begin{itemize}
+\tightlist
 \item
   The user will be able to review their account information, to either
   add, edit, remove information.
 
   \begin{itemize}
+  \tightlist
   \item
     The user can edit the questionnaire information that they provided
     when signing up.
@@ -416,6 +301,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     The user can log out of the app, which transfer to log-in screen.
 
     \begin{itemize}
+    \tightlist
     \item
       The user can log out of all devices.
     \end{itemize}
@@ -425,6 +311,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   functionalities of the app
 
   \begin{itemize}
+  \tightlist
   \item
     The user can choose to turn on or off the AI (see: 7.Behaviour
     Analysis AI)
@@ -446,11 +333,13 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 (IBA)}\label{intelligent-behaviour-analysis-ai-iba}}
 
 \begin{itemize}
+\tightlist
 \item
   IBA will create scheduling models based on collected information from
   other functionalities of the app that the user can access
 
   \begin{itemize}
+  \tightlist
   \item
     IBA collects information based on changes from the Calendar (see: 3.
     Calendar), User-given personal information (see: 6. Account
@@ -464,6 +353,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
     trackers (see: 5.Tracker).
 
     \begin{itemize}
+    \tightlist
     \item
       i.e.~recommends more sleep hours for the following day if User
       reports light sleep for the previous day.
@@ -485,10 +375,11 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
 \subsection{Non Functional
 Requirements}\label{non-functional-requirements}}
 
-\hypertarget{upload-performance}{%
-\paragraph{1.Upload performance:}\label{to-add}}
+\hypertarget{to-add}{%
+\paragraph{To add:}\label{to-add}}
 
 \begin{itemize}
+\tightlist
 \item
   The app will upload user data to the server within 3 seconds
 \item
@@ -497,20 +388,23 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{security}{%
-\paragraph{2.Security}\label{security}}
+\paragraph{1.Security}\label{security}}
 
 \begin{itemize}
+\tightlist
 \item
   The app will implement hybrid cryptography for secure data transfer
   between cloud server and local app process used by user.
 
   \begin{itemize}
+  \tightlist
   \item
     The app must ensure data communications with external sources are
     either local or also secure. Unless necessary, all communications
     are primarily between local app and cloud server.
 
     \begin{itemize}
+    \tightlist
     \item
       Tracker applications and devices will be accessed without using
       any interaction between local app and cloud server.
@@ -529,15 +423,17 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{reliability}{%
-\paragraph{3.Reliability}\label{reliability}}
+\paragraph{2.Reliability}\label{reliability}}
 
 \begin{itemize}
+\tightlist
 \item
   The app should be designed to account for possible errors and failures
   in the components and attempt to address it without hurting user
   experience or minimising it.
 
   \begin{itemize}
+  \tightlist
   \item
     The AI should be designed and stress tested in mind to handle any
     and all changes in the app components.
@@ -559,14 +455,16 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{scalability}{%
-\paragraph{4.Scalability}\label{scalability}}
+\paragraph{3.Scalability}\label{scalability}}
 
 \begin{itemize}
+\tightlist
 \item
   The app should be constructed that an increase of users does not
   adversely affect the user experience of the individual user.
 
   \begin{itemize}
+  \tightlist
   \item
     Be designed that additional servers can be added or removed
     seamlessly and proportionally handle requests from users as user
@@ -581,14 +479,16 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{efficiency}{%
-\paragraph{5.Efficiency}\label{efficiency}}
+\paragraph{4.Efficiency}\label{efficiency}}
 
 \begin{itemize}
+\tightlist
 \item
   Actions the users may take must take a minimal amount of processing
   time of 1 second within the app.
 
   \begin{itemize}
+  \tightlist
   \item
     Communications to external API i.e.~Canvas or Bham must not add on
     significant waiting time than based on the users internet connection
@@ -598,6 +498,7 @@ Requirements}\label{non-functional-requirements}}
     take more time, but must finish as soon as possible
 
     \begin{itemize}
+    \tightlist
     \item
       Server syncs should compare information between local app and
       cloud server to upload the smallest possible data.
@@ -607,6 +508,7 @@ Requirements}\label{non-functional-requirements}}
       recommendation models.
 
       \begin{itemize}
+      \tightlist
       \item
         The BAI should compare incoming information with current one
         that it is actively using, and only pass new information to
@@ -618,13 +520,15 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{maintainability}{%
-\paragraph{6.Maintainability}\label{maintainability}}
+\paragraph{5.Maintainability}\label{maintainability}}
 
 \begin{itemize}
+\tightlist
 \item
   The app should be able to operate with minimal human oversight
 
   \begin{itemize}
+  \tightlist
   \item
     The BAI should be able to run autonomously without direct user
     interaction and run effectively with any given amount of information
@@ -640,16 +544,18 @@ Requirements}\label{non-functional-requirements}}
 \end{itemize}
 
 \hypertarget{accessibility-and-usability}{%
-\paragraph{7.Accessibility and
+\paragraph{6.Accessibility and
 Usability}\label{accessibility-and-usability}}
 
 \begin{itemize}
+\tightlist
 \item
   All of the app should be able to be used effectively with minimal
   instructions, and is intuitive to the user. The app should also be
   accessible by people with disabilities.
 
   \begin{itemize}
+  \tightlist
   \item
     The design of the UI must take into account of colour blindness so
     that people with them are not confused.
@@ -663,118 +569,3 @@ Usability}\label{accessibility-and-usability}}
     Aim to display the app in mostly visuals instead of words.
   \end{itemize}
 \end{itemize}
-
-\newpage
-
-\section{Use Case}
-\subsection{Comprehensive Use Case Diagram}
-\begin{center}
-\includegraphics[angle=-90, scale=0.7]{img/Usecase_Diagram.pdf}
-\end{center}
-\subsection{Non-trivial Use Case: Add a tracker}
-\subsubsection*{Precondition}
-\begin{enumerate}
-    \item User has created an account.
-    \item User has logged into their account.
-    \item User has selected tracker tab.
-    \item (User selects add a tracker option from the tracker page.)
-\end{enumerate}
-
-\subsubsection*{Flow of Events}
-\begin{enumerate}
-    \item User selects Add a tracker option from the Tracking page.
-    \item List of trackers that it is possible to import data from is shown to user.
-    \begin{enumerate}
-        \item If the user selects an item from the list, they are redirected to an authentication page.
-        \item If the user selects cancel, then the user is asked to confirm their decision, after which they are returned to the tracker page or prompted to select a tracker from the list.
-    \end{enumerate}
-    \item Once on the authentication page the user will be asked to give permission to allow the app to access their data from the selected tracking service.
-    \begin{enumerate}
-        \item If the user accepts, they are shown a “gathering information” page
-        \item If the user rejects the authentication they are returned to the list of trackers.
-    \end{enumerate}
-    \item Request is sent to the service the user selected
-    \item \begin{enumerate}
-        \item If the request is declined/fails user is shown a box which tells them the data import failed, and to try again later, then they are returned to the select tracker screen.
-        \item If request is accepted, then a token is returned which is used to get data using the chosen services api.
-    \end{enumerate}
-    \item Request made to selected service.
-    \begin{enumerate}
-        \item If errors occur with the requests they are tried again x times, if continued errors the process will be cancelled and the user will be returned to the select a tracker screen and shown a message telling them an error occurred.
-        \item If no errors occur, then the system continues.
-    \end{enumerate}
-    \item The data collected is put into apps databases etc to be viewable by the user in the app.
-    \begin{enumerate}
-        \item The data will be handled differently depending on the app it was collected from.
-    \end{enumerate}
-    \item User data stored on the cloud gets updated.
-    \item Once the process is complete the user is returned to the select tracker page and told that the import was a success.
-\end{enumerate}
-
-\subsubsection*{Post Conditions}
-\begin{enumerate}
-    \item System updates the user’s information, using the new data imported from the added tracker, if a tracker was added.
-    \item The system returns to an idle state and waits for the next input.
-\end{enumerate}
- 
- 
-\subsubsection*{Actors}
-The user is the main actor in this use case as they will initiate the case by selecting the tracking tab in the app, and the tracking application that the data will be collected from. Another actor will be the cloud as the user data will be updated if the user makes any changes.
-
-\subsubsection*{Scenarios}
-\begin{enumerate}
-    \item User A selects “Add a tracker” option from the tracker page and is prompted to select the tracker that they would like to import data from. They select Fitbit from the list of options. The user is redirected to the Fitbit OAuth 2.0 authorization page where the user selects “allow all” to give the app permission to collect all of their data from Fitbit. HTTP request is made to access the user’s data. User data is pulled from the server and imported to the in-app tracker. Data is added to local databases for use by other parts of the app etc. Data uploaded to cloud database. user is shown a message confirming their data has been imported and is returned to the selection screen.
-    \item User B selects “add a tracker” option from the tracker page in is prompted to select the tracker that they would like to import data from. They select Fitbit from the list of options. The user is redirected to the Fitbit OAuth 2.0 authorization page where the user selects “deny all” User is sent back to the tracker page. System waits for user input.
-\end{enumerate}
-\newpage
-
-\section{Activity Diagram}
-\begin{center}
-\includegraphics[width=\textwidth]{img/Activity_Diagram.pdf}
-\end{center}
-
-\section{Class Analysis}
-\subsection{Noun-verb Analysis}
-\subsection{First-Cut Class Diagram}
-\begin{center}
-\includegraphics[angle=-90,width=0.8\textwidth]{img/Firstcut_Class_Diagram.pdf}
-\end{center}
-\subsection{Detailed Class Diagram}
-\begin{center}
-\includegraphics[angle=-90,width=0.9\textwidth]{img/Class_Diagram.pdf}
-\end{center}
-\newpage
-
-\section{Object Diagram}
-\begin{center}
-    \includegraphics[angle=-90,width=0.8\textwidth]{img/Object_Diagram.pdf}
-\end{center}
-\newpage
-
-\section{Sequence Diagram}
-\vspace{1cm}
-\begin{center}
-    \includegraphics[angle=-90,width=\textwidth]{img/Sequence_Diagram.pdf}
-\end{center}
-\newpage
-
-\section{State Diagram}
-\begin{center}
-    \includegraphics[angle=-90,width=\textwidth]{img/State_Diagram.pdf}
-\end{center}
-\newpage
-
-\section{System Architecture}
-\subsection{Candidate Architectures}
-\subsubsection{3-Tier Architecture Component Diagram}
-\subsubsection{Client-Server Architecture Component Diagram}
-\newpage
-
-\subsection{Deployment Diagram}
-\subsection{Architecture Justification}
-\subsubsection{ATAM evaluation: Utility Tree}
-\newpage
-\newpage
-%\includepdf[angle=-90]{img/Object_Diagram.pdf}
-Test2
-\end{document}

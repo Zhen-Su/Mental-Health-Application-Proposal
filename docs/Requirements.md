@@ -190,20 +190,20 @@ Extendable:
 
 #### 6. Account Management
 
-The user will be able to review their account information, to either add, edit, remove information.
+- The user will be able to review their account information, to either add, edit, remove information.
     - The user can edit the questionnaire information that they provided when signing up.
     - The user can edit their credentials, password and emails to change them.
     - The user can see all the devices that are accessing the account.
     - The user can log out of the app, which transfer to log-in screen.
         - The user can log out of all devices.
 
-The user will be able to review and edit preferences regarding other functionalities of the app
+- The user will be able to review and edit preferences regarding other functionalities of the app
     - The user can choose to turn on or off the AI (see: 7.Behaviour Analysis AI)
     - The user can choose to delete AI stored information about user.
     - The user can choose to sync cloud data manually.
     - The user can choose to set sync period, or disable sync. it'll be set to a default value otherwise.
 
-The app will be able to make use of the information given by the user. The user must be able to set how much information the app can use.
+- The app will be able to make use of the information given by the user. The user must be able to set how much information the app can use.
 
 <!--
 
@@ -231,17 +231,17 @@ Show devices
 - sending verification email/ messages should be done in small time frame
 - store all new user data securely
 -->
-#### 7. Behaviour Analysis AI (BAI)
+#### 7. Intelligent Behaviour Analysis AI (IBA)
 
-- The AI will create scheduling models based on collected information from other functionalities of the app that the user can access
-    - The AI collects information based on changes from the Calendar (see: 3. Calendar), User-given personal information (see: 6. Account Management), and from Tracker (see: 5. Tracker)
-    - The AI will attempt to sort the information coming in to produce an optimised schedule for a period of 2 weeks.
-    - The AI will recommend modifications to its own schedule model for the week based on actual user activity throughout the day collected from trackers (see: 5.Tracker).
+- IBA will create scheduling models based on collected information from other functionalities of the app that the user can access
+    - IBA collects information based on changes from the Calendar (see: 3. Calendar), User-given personal information (see: 6. Account Management), and from Tracker (see: 5. Tracker)
+    - IBA will attempt to sort the information coming in to produce an optimised schedule for a period of 2 weeks.
+    - IBA will recommend modifications to its own schedule model for the week based on actual user activity throughout the day collected from trackers (see: 5.Tracker).
         - i.e. recommends more sleep hours for the following day if User reports light sleep for the previous day.
-    - The AI will change its recommendation models based on how much of the models it recommends are rejected or accepted in attempt to study user preferences.
+    - IBA will change its recommendation models based on how much of the models it recommends are rejected or accepted in attempt to study user preferences.
 
-- The AI can be switched on or off by the user in Account Management (see: 6. Account Management)
-- The AI's saved preferences can be deleted by the user in Profile Management (see: 6. Account Management)
+- IBA can be switched on or off by the user in Account Management (see: 6. Account Management)
+- IBA's saved preferences can be deleted by the user in Profile Management (see: 6. Account Management)
 
 
 ## Non Functional Requirements

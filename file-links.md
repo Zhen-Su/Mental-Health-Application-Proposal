@@ -16,3 +16,7 @@ Having the online documents is easier to work with than  using the iterative pdf
 [Component diagrams](https://www.lucidchart.com/invitations/accept/09655ddb-850d-488c-b86c-c498071292fe)
 
 [Deployment diagram](https://www.lucidchart.com/invitations/accept/6404a150-4e1e-4ce5-8964-499446b7bd79)
+
+[Architecture](https://www.lucidchart.com/invitations/accept/39c28818-624b-4a31-ba86-f7cc8e60bde7)
+
+[Text to Architecture](https://docs.google.com/document/d/1isnspCcxeB41mEiuRZ_e4B3LHEBLGFYg9JurqtHcsOw/edit)
