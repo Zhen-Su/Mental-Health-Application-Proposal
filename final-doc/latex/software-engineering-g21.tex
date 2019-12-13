@@ -8,8 +8,6 @@
 \usepackage{pdfpages} % Allows to import full pdf documents similar to graphics
 \usepackage{wrapfig} % Wrap text around figures more naturally
 \usepackage{lipsum} % Generates filler text
-\usepackage{longtable} % For tables (pandoc)
-\usepackage{booktabs} % To thicken table lines (pandoc)
 \hypersetup{
     colorlinks,
     linkcolor={black!80!black}, % change this color for links
@@ -484,7 +482,7 @@ Therefore, the servers will handle all accounts’ synchronisation requests in a
   IBA's saved preferences can be deleted by the user in Profile
   Management (see: 6. Account Management)
 \end{itemize}
-
+\newpage
 \hypertarget{non-functional-requirements}{%
 \subsection{Non Functional
 Requirements}\label{non-functional-requirements}}
@@ -740,17 +738,25 @@ The user is the main actor in this use case as they will initiate the case by se
 
 \section{Class Analysis}
 \subsection{Noun-verb Analysis}
+\begin{center}
+    \includegraphics[scale=0.9]{img/noun-verb/table1.png}
+    \newpage
+    \includegraphics[scale=0.9]{img/noun-verb/table2.png}
+    \includegraphics[scale=0.9]{img/noun-verb/table3.png}
+    \includegraphics[scale=0.9]{img/noun-verb/table4.png}
+\end{center}
+\newpage
+\subsubsection*{Responsibility Driven Analysis}
 \vspace{1cm}
 \begin{center}
-    \includegraphics[scale=0.9]{img/noun-verb/page1.png}
-    \newpage
-    \includegraphics[scale=0.9]{img/noun-verb/page2.png}
-    \includegraphics[scale=0.9]{img/noun-verb/page3.png}
-    \includegraphics[scale=0.9]{img/noun-verb/page4.png}
-    \includegraphics[scale=0.9]{img/noun-verb/page5.png}
+  \includegraphics[width=\textwidth]{img/noun-verb/rda-table1.png}
+  \newpage
+  \includegraphics[width=\textwidth]{img/noun-verb/rda-table2.png}
+  \includegraphics[width=\textwidth]{img/noun-verb/rda-table3.png}
+  \includegraphics[width=\textwidth]{img/noun-verb/rda-table4.png}
+  \includegraphics[width=\textwidth]{img/noun-verb/rda-table5.png}
 \end{center}
-
-\subsubsection*{Responsibility Driven Analysis}
+\newpage
 
 \subsection{First-Cut Class Diagram}
 \begin{center}
@@ -782,14 +788,14 @@ The user is the main actor in this use case as they will initiate the case by se
 \newpage
 
 \section{System Architecture}
-\subsection{Component Diagram}
-\subsubsection{3-Tier Architecture Component Diagram}
+\subsection{Component Diagrams}
+\subsubsection{Candidate 1: 3-Tier Architecture}
 \vspace{1cm}
 \begin{center}
     \includegraphics[width=0.9\textwidth]{img/Component_Diagram_3tier.pdf}
 \end{center}
 \newpage
-\subsubsection{Client-Server Architecture Component Diagram}
+\subsubsection{Candidate 2: Client-Server Architecture Candidate}
 \begin{center}
     \includegraphics[width=0.9\textwidth]{img/Component_Diagram_SC.pdf}
 \end{center}
@@ -806,8 +812,9 @@ The user is the main actor in this use case as they will initiate the case by se
     \includegraphics[width=\textwidth]{img/Utility_Tree.pdf}
 \end{center}
 \newpage
+
 \subsubsection{Justification}
-We will use the Two-tier Client-Server architecture. This is because our app is only using
+We will use the Two-tier \textbf{Client-Server architecture}. This is because our app is only using
 the server for the database synchronisation which means there is no need for the added complications
 and labor costs involved in implementing a Three tier architecture. While this can generalize and implement further
 features for the system, our software would not have significant benefit as the server is only used as a remote backup.
@@ -817,4 +824,114 @@ for faster communication to the Server because the app directly make requests to
 add complexity to the software. This additional \emph{feature} would slow down development where the app should be focused on quick deployment in order
 to provide its service to the users in need.
 
+Additionally the Server-Client architecture is easier to secure due to the lower complexity. Data is sent directly to and from the server so there are less 
+points where data can leak, although an advantage of the three tier system would be that you are able to cache data to still access it if the servers are down.
+This is mostly irrelevant to the user as he has the local data storage which is usually the most up-to-date data.
+\newpage
+
+\section{User Interface}
+
+\subsection{Overview}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[angle=-90, width=0.9\textwidth]{img/ui-wireframe/Wireframe-connections.jpg}
+  \caption{Overview of User Interfaces and UI action consequences}
+\end{figure}
+\newpage
+
+\subsection{Login/Registration}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Sign-in.png}
+  \caption{Sign in}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Sign-up.png}
+  \caption{Beginning of Registration process}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Sign-up-verification-prompt.png}
+  \caption{Verification request}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Sign-up-questionnaire.png}
+  \caption{Questionnaire}
+\end{figure}
+\newpage
+
+\subsection{Calendar}
+%\vspace{0.5cm}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Calendar.png}
+  \caption{Weekly View mode of the Calendar tab (default page after login)}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Calendar-View.png}
+  \caption{View modes of the Calendar (top left button)}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Calendar-Add-Action.png}
+  \caption{Adding an event using the draggable Plus-button}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Calendar-New-Event.png}
+  \caption{Adding event data interface}
+\end{figure}
+\newpage
+
+\subsection{Todo}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Todo.png}
+  \caption{Default Todo tab View mode}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Todo-View.png}
+  \caption{View modes of the Todo interface (top left button)}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Todo-Add-Action.png}
+  \caption{Adding a ToDo using the draggable Plus-button}
+\end{figure}
+\newpage
+
+\subsection{Tracking}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Tracking.png}
+  \caption{Default Tracking tab Overview mode}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Tracking-View.png}
+  \caption{View modes of the Tracking interface (top left button)}
+\end{figure}
+\newpage
+
+\subsection{Profile}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/ui-wireframe/Profile.png}
+  \caption{Settings/Profile tab (top right button)}
+\end{figure}
 \end{document}
