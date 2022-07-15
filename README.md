@@ -1,4 +1,11 @@
-Contributor：
+# Contributor：
+Harry Liddall - hxl868@student.bham.ac.uk
+Jonas Schäfer - jxs1270@student.bham.ac.uk
+Marina Tihova - mtt862@student.bham.ac.uk
+Phan Minh Cuong - cxp895@student.bham.ac.uk
+Jinming Zhang - jxz784@student.bham.ac.uk 
+Zhen Su - zxs777@student.bham.ac.uk
+Kunyong Li - kxl706@student.bham.ac.uk
 
 Submission Outline
 -------------------
